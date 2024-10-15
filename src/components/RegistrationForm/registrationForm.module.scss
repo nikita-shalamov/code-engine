@@ -1,0 +1,111 @@
+.logo {
+    display: block;
+    margin: 0 auto;
+    margin-top: 9px;
+}
+
+.form {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: fit-content;
+    width: 100%;
+}
+
+.formItem {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formTitle {
+    margin-top: 9px;
+    text-align: center;
+    color: #765996;
+    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.formSubtitle {
+    padding: 20px;
+    margin-top: 12px;
+    text-align: center;
+    color: #666666;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.formLabel {
+    width: 100%;
+    max-width: 549px;
+    text-align: left;
+    color: #666666;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.showPassword {
+    color: rgba(102, 102, 102, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.formError {
+    color: #EE1D52;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.formInput {
+    margin-top: 7px;
+    max-width: 549px;
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 15px 24px 17px 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #666666;
+    background-color: rgba(0,0,0,0);
+    font-size: 16px;
+    outline: none;
+    &::placeholder {
+        font-size: 18px;
+    }
+}
+
+.formButton {
+    max-width: 549px;
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+    background: #765996;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+

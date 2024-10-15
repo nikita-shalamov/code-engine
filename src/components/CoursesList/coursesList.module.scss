@@ -1,0 +1,113 @@
+.coursesFor, .coursesCategory {
+    color: #61788A;
+    font-size: 14px;
+    font-family:'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 21px;
+    word-wrap: break-word;
+}
+
+.coursesList {
+    margin-top: 38px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 12px;
+    row-gap: 40px;
+}
+
+@media (min-width: 1600px) and (max-width: 1919px) {
+    .coursesList {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1599px) {
+    .coursesList {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+    .coursesList {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .coursesList {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .coursesList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .coursesList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .coursesList {
+        grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); // Адаптивная сетка
+    }
+}
+
+
+.coursesTitle {
+    color: #121417;
+    font-size: 16px;
+    font-family:'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+
+.coursesItem {
+    min-width: 176px;
+    cursor: pointer;
+}
+
+.coursesImage {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Соотношение сторон 16:9 (176/99 ≈ 1.777) */
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Масштабирует изображение, сохраняя пропорции */
+    }
+}
+
+.coursesInfo {
+    margin-top: 13px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.coursesRating {
+    color: #EAB308;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+}
+
+.coursesLevel {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+}
