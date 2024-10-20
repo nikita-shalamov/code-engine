@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./homeHeader.module.scss";
+import { Avatar } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import { useUserDataContext } from "../../../hooks/сontext/useUserDataContext";
 
 const HomeHeader = () => {
+    const { userData } = useUserDataContext();
+
     return (
         <div className={styles.homeHeader}>
             <div className={styles.leftCol}>
@@ -18,7 +23,7 @@ const HomeHeader = () => {
                     <img src="/icons/ring.svg" alt="" />
                 </button>
                 <Link className={styles.userAvatar} to="/profile">
-                    <img src="/images/avatar.png" alt="" />
+                    <Avatar size={40} icon={<UserOutlined />} src={userData?.Photo} />
                 </Link>
             </div>
         </div>

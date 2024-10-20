@@ -1,20 +1,25 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import HomePage from "../pages/HomePage/HomePage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import HomeLayout from "../layouts/HomeLayout";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRoutes = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<HomeLayout children={<HomePage />} />} />
+        <Routes>
+            <Route element={<PublicRoute />}>
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} />
+            </Route>
+
+            <Route element={<PrivateRoute />}>
+                <Route path="/" element={<HomeLayout children={<HomePage />} />} />
                 <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-        </Router>
+            </Route>
+        </Routes>
     );
 };
 

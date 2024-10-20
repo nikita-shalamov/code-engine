@@ -1,7 +1,7 @@
 import styles from "./coursesList.module.scss";
 
 const CoursesList = () => {
-    const coursesData = [
+    const coursesDataTest = [
         {
             id: 1,
             image: "/images/test-photo-course.png",
@@ -151,7 +151,7 @@ const CoursesList = () => {
     return (
         <div className="container">
             <div className={styles.coursesList}>
-                {coursesData.slice(0, 12).map((course) => (
+                {coursesDataTest.slice(0, 12).map((course) => (
                     <div key={course.id} className={styles.coursesItem}>
                         <div className={styles.coursesImage}>
                             <img src={course.image} alt={course.title} />
