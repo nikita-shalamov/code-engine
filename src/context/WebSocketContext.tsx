@@ -13,7 +13,9 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const [token, setToken] = useState<null | string>(null);
 
     useEffect(() => {
-        if (token) {
+        const connectWebSocket = () => {
+            if (!token) return;
+
             socketRef.current = new WebSocket(`${import.meta.env.VITE_SERVER}/websocket?token=${token}`);
 
             socketRef.current.onopen = () => {
@@ -32,13 +34,15 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                 console.log("WebSocket closed:", event);
                 setConnectionStatus(false);
             };
+        };
 
-            return () => {
-                if (socketRef.current) {
-                    socketRef.current.close();
-                }
-            };
-        }
+        connectWebSocket();
+
+        return () => {
+            if (socketRef.current) {
+                socketRef.current.close();
+            }
+        };
     }, [token]);
 
     const sendMessage = (message: object) => {
