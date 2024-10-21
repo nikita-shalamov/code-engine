@@ -11,6 +11,7 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const [response, setResponse] = useState<{ Method: string; IsSuccess: boolean; ErrorMessage: string; Value: userDataTypes } | null>(null);
     const socketRef = useRef<WebSocket | null>(null);
     const [token, setToken] = useState<null | string>(null);
+    let reconnectInterval: NodeJS.Timeout;
 
     useEffect(() => {
         const connectWebSocket = () => {
@@ -20,6 +21,7 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
             socketRef.current.onopen = () => {
                 setConnectionStatus(true);
+                clearTimeout(reconnectInterval);
             };
 
             socketRef.current.onmessage = (event) => {
@@ -33,6 +35,11 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             socketRef.current.onclose = (event) => {
                 console.log("WebSocket closed:", event);
                 setConnectionStatus(false);
+                clearTimeout(reconnectInterval);
+
+                reconnectInterval = setTimeout(() => {
+                    connectWebSocket();
+                }, 3000);
             };
         };
 
